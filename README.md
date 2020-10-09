@@ -4,8 +4,8 @@
 
 # Animations
 #### Flames:
-Deepak K Vijayan - [Codepen](https://codepen.io/2xsamurai/pen/EKpYMg?__cf_chl_jschl_tk__=d5ada277a4b7f26a71406d6b05cf62559e2771b3-1602282540-0-AedwSky-Zb19pCTUOCctnWqNpd0i4IutEVaNAC4piqifSEd01qVj_IIjaWmnisrz-PbwUetz-gZ10h16uDbjV64BkzZ1h26XSwHCLZHRARLCJU4HSD2akNs2XrrNF_xmszYT7F1WN5_joIlhpimp-yTbqnjAe84hu9tRGyowMU0MVLWVxHVf4qCh4bjS_b1e24bmDZOi469CWaDAm0FSJimkuUhxyQX9CdR6mcKYATyXGCSnTeErCvH_nSy3EHq0FaLB3p1a5nLQ-OeHRWimnkBVrzjAMRBQ3zexXrGTGcnW0hwwDypq94B3CN3akDheNlb4TxJucXsMxZPV5g09D7xeppFaJl_gEW5Cspaq79Sq)
+Deepak K Vijayan - [Codepen](https://codepen.io/2xsamurai/pen/EKpYMg)
 
 #### Celebration: 
-Robin - [Codepen](https://codepen.io/2xsamurai/pen/EKpYMg?__cf_chl_jschl_tk__=d5ada277a4b7f26a71406d6b05cf62559e2771b3-1602282540-0-AedwSky-Zb19pCTUOCctnWqNpd0i4IutEVaNAC4piqifSEd01qVj_IIjaWmnisrz-PbwUetz-gZ10h16uDbjV64BkzZ1h26XSwHCLZHRARLCJU4HSD2akNs2XrrNF_xmszYT7F1WN5_joIlhpimp-yTbqnjAe84hu9tRGyowMU0MVLWVxHVf4qCh4bjS_b1e24bmDZOi469CWaDAm0FSJimkuUhxyQX9CdR6mcKYATyXGCSnTeErCvH_nSy3EHq0FaLB3p1a5nLQ-OeHRWimnkBVrzjAMRBQ3zexXrGTGcnW0hwwDypq94B3CN3akDheNlb4TxJucXsMxZPV5g09D7xeppFaJl_gEW5Cspaq79Sq)
+Robin - [Codepen](https://codepen.io/ErRobin/pen/ZEWYNEQ)
 

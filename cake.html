@@ -40,7 +40,7 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+			background-image: url(https://media.giphy.com/media/j1tK8Puk8RspqBP2cs/giphy.gif);
 			background-size: cover;
 			
 		}		
@@ -58,11 +58,19 @@
 		}
 		.celebrateContainer{
 			display: none;
+			
 		}	
-
+		.celebrateContainer img{
+			position: absolute;
+			top:0;
+			left:50%;
+			width: auto;
+			max-height: 100%;
+			display: none;
+		}
 		#gallery{
-			width: 300px;
-			height: 200px;
+			width: 100%;
+			height: auto;
 		}	
 
 		.mo-fire {
@@ -74,35 +82,39 @@
 
 		.blow1 {
 			animation-name: diffuse;
-			animation-duration: 5s;
+			animation-duration: 80s;
 			animation-timing-function: ease-out;
 			animation-direction: alternate;
+			animation-iteration-count: infinite;
 
 		}
 
 		.blow2 {
 			animation-name: diffuse;
-			animation-duration: 4s;
+			animation-duration: 75s;
 			animation-timing-function: ease-out;
 			animation-direction: alternate;
+			animation-iteration-count: infinite;
 		}
 
 		@keyframes diffuse {
 			0%{
-				opacity: 0.7;
-			}
-			25%{
-				opacity: 0.5;
+				opacity: 0.9;
 			}
 			50%{
+				opacity: 0.7;
+			}
+			55%{
+				opacity: 0.6;
+			}
+			60%{
+				opacity: 0.5;
+			}
+			70%{
 				opacity: 0.3;
 			}
-			75%{
-				opacity: 0.2;
-			}
 			100%{
-				opacity: 0;
-				display: none;
+				opacity: 0.2;
 			}
 		}
 
@@ -200,8 +212,9 @@
 		<button id="btn" onclick="blow()">Blow</button>
 
 		<div class="celebrateContainer">
-			<button id="btn" onclick="playpause()">Play/Pause</button>				
+			<button id="btn" onclick="playpause()">Play/Pause</button>
 			<canvas id=c></canvas>
+			<img src=""  />			
 		</div>
 	</div>
 
@@ -333,15 +346,15 @@
 		function blow(){
 			var audio = document.createElement("audio")
 			document.querySelector(".container1").appendChild(audio)
-			audio.src= "bhojpuriBirthday.mp3"
+			audio.src= "happybirthdaykygo.mp3"
 			audio.play()
-			audio.currentTime+=20
+			//audio.currentTime+=20
 			Array.from(document.querySelectorAll(".mo-fire")).forEach((x,i)=>{
 
 				x.classList.add(i%2?"blow1":"blow2")
 				setTimeout(()=>{
 					x.style.display="none"	
-				},3500)
+				},77000)
 
 			})
 			setTimeout(()=>{
@@ -349,33 +362,47 @@
 				document.querySelector(".container1").removeChild(cake)
 				var ele = document.querySelector(".celebrateContainer")
 				ele.style.display='block'
+				console.log("cele")
 				ele.style['z-index']=100
-				ele.classList.add("celebrate")
+				var ele1 = document.querySelector(".celebrateContainer")
+				ele1.classList.add("canvas")
 				celebrate()
-			},3000)
+			},77000)
+			var j=1
+			setInterval(()=>{
+				var gif = document.querySelector(".celebrateContainer img")
+				gif.style.display = gif.style.display==='none'?'block':'none'
+				j = j>5?1:j
+				gif.src = `./photos/${j}.jpg`
+				gif.style.left =`${(window.innerWidth/2)-Math.floor(gif.getBoundingClientRect().width/2)}px`
+				j=j+1
+			},6000)
 		}
 
 		function playpause(){
 			var audio = document.querySelector('audio')
 			if(audio.paused) audio.play() 
-				else audio.pause();
+			else audio.pause();
 		}
 		window.onload = buildNode;
 		window.onresize = position;
 
 		(function gallery(){
-			for(let i=1;i<=6;i++){
+			for(let i=1;i<=5;i++){
 				var parent = document.querySelector(".container2 .container #row")
 				var img = document.createElement('img')
 				var a = document.createElement('a')
 				var newNode = document.createElement('div')
 				newNode.className = "col-lg-3 col-md-4 col-6"
 				a.className="d-block mb-4 h-100"
-				img.src=`./photos/${i}.jpg`
+				img.src="./photos/"+i+".jpg"
+				
 				img.id='gallery'
 				a.appendChild(img)
 				newNode.appendChild(a)
 				parent.appendChild(newNode)
+				
+				
 			}
 		}())
 

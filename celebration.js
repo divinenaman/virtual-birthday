@@ -2,8 +2,8 @@
 function celebrate(){
 
 	const urlParams = new URLSearchParams(window.location.search);
-	const name = urlParams.get('name');
-	var w = c.width = window.innerWidth,
+	const name =urlParams.get('name');
+	var w = c.width = window.innerWidth-15
 	h = c.height = window.innerHeight,
 	ctx = c.getContext( '2d' ),
 

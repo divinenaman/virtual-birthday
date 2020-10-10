@@ -43,7 +43,17 @@
 			background-image: url(https://media.giphy.com/media/j1tK8Puk8RspqBP2cs/giphy.gif);
 			background-size: cover;
 			
-		}		
+		}
+		.container3{
+			height: auto;
+			min-width: 1000px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-image: url(https://media.giphy.com/media/yvdAblIYLJDazJHyuA/giphy.gif);
+			background-size: cover;
+			
+		}			
 		#btn{
 			position: absolute;
 			top:15%;
@@ -63,7 +73,7 @@
 		.celebrateContainer img{
 			position: absolute;
 			top:0;
-			left:50%;
+			left:25%;
 			width: auto;
 			max-height: 100%;
 			display: none;
@@ -72,6 +82,11 @@
 			width: 100%;
 			height: auto;
 		}	
+
+		#videogallery{
+			width: 100%;
+			height: auto;
+		}
 
 		.mo-fire {
 
@@ -228,6 +243,18 @@
 		</div>
 		</div>
 	</div>
+
+	<div class="container3"> 
+		<div class="container">
+		<h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">Messages</h1>
+
+		<hr class="mt-2 mb-5">
+
+		<div id="row" class="row text-center text-lg-left">
+		</div>
+		</div>
+	</div>
+
 	<script src="celebration.js"></script>
 	<script>
 
@@ -370,25 +397,31 @@
 			},77000)
 			var j=1
 			setInterval(()=>{
-				var gif = document.querySelector(".celebrateContainer img")
-				gif.style.display = gif.style.display==='none'?'block':'none'
-				j = j>5?1:j
-				gif.src = `./photos/${j}.jpg`
-				gif.style.left =`${(window.innerWidth/2)-Math.floor(gif.getBoundingClientRect().width/2)}px`
+				var img = document.querySelector(".celebrateContainer img")
+				img.style.display = img.style.display==='none'?'block':'none'
+				j = j>27?1:j
+				img.src = `./photos/${j}.jpg`
+				img.onerror = handle
+				img.style.left =`${(window.innerWidth/2)-Math.floor(img.getBoundingClientRect().width/2)}px`
 				j=j+1
 			},6000)
 		}
 
+		function handle(){
+			this.src=this.src.replace('jpg','gif')
+			this.onerror=null			
+			console.log('error')
+		}
 		function playpause(){
 			var audio = document.querySelector('audio')
 			if(audio.paused) audio.play() 
-			else audio.pause();
+			else audio.pause();2
 		}
 		window.onload = buildNode;
 		window.onresize = position;
 
-		(function gallery(){
-			for(let i=1;i<=5;i++){
+		(function picgallery(){
+			for(let i=1;i<=27;i++){
 				var parent = document.querySelector(".container2 .container #row")
 				var img = document.createElement('img')
 				var a = document.createElement('a')
@@ -396,7 +429,7 @@
 				newNode.className = "col-lg-3 col-md-4 col-6"
 				a.className="d-block mb-4 h-100"
 				img.src="./photos/"+i+".jpg"
-				
+				img.onerror = handle
 				img.id='gallery'
 				a.appendChild(img)
 				newNode.appendChild(a)
@@ -406,6 +439,24 @@
 			}
 		}())
 
+		(function videogallery(){
+			for(let i=1;i<=5;i++){
+				var parent = document.querySelector(".container3 .container #row")
+				var vid = document.createElement('video')
+				var a = document.createElement('a')
+				var newNode = document.createElement('div')
+				newNode.className = "col-lg-3 col-md-4 col-6"
+				a.className="d-block mb-4 h-100"
+				vid.src="./videos/"+i+".mp4"
+				vid.id='videogallery'
+				vid.controls = true
+				a.appendChild(vid)
+				newNode.appendChild(a)
+				parent.appendChild(newNode)
+				
+				
+			}
+		}())
 	</script>
 </body>
 </html>

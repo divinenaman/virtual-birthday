@@ -64,7 +64,7 @@ function buildNode(){
 			position()
 		}
 
-		function position(){
+		async function position(){
 			const cake = document.getElementById("cake").getBoundingClientRect();
 			var fire = document.querySelectorAll(".mo-fire")
 			console.log(cake)

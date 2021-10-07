@@ -115,7 +115,7 @@ function buildNode(){
 			if(isNaN(audio.duration)){
 			document.getElementById("btn").innerHTML = "Play/Pause"
 			document.querySelector(".container1").appendChild(audio)
-			audio.src= "happybirthdaykygo.mp3"
+			audio.src= "bday.mp3"
 			audio.play()
 			//audio.currentTime+=20
 			Array.from(document.querySelectorAll(".mo-fire")).forEach((x,i)=>{
@@ -123,7 +123,7 @@ function buildNode(){
 				x.classList.add(i%2?"blow1":"blow2")
 				setTimeout(()=>{
 					x.style.display="none"	
-				},77000)
+				},8000)
 
 			})
 			setTimeout(()=>{
@@ -136,25 +136,25 @@ function buildNode(){
 				var ele1 = document.querySelector(".celebrateContainer")
 				ele1.classList.add("canvas")
 				celebrate()
-			},77000)
+			},8000)
 			var j=1
 			setInterval(()=>{
 				var img = document.querySelector(".celebrateContainer img")
 				img.style.display = img.style.display==='none'?'block':'none'
-				const no_pic = 4
-				j = j>no_pic?1:j
-				img.src = `./photos/${j}.jpg`
+				const no_pic = 8
+				// j = j>no_pic?1:j
+				img.src = `./photos/${j}.jpeg`
 				img.onerror = handle
 				img.style.left =`${(window.innerWidth/2)-Math.floor(img.getBoundingClientRect().width/2)}px`
-				j=j+1
-			},6000)
+				j=(j+1)%(no_pic+1)
+			},2000)
 		 }
 		 else if(audio.paused) audio.play()
 		 else audio.pause()
 		}
 
 		function handle(){
-			this.src=this.src.replace(/jpg$/,'gif')
+			this.src=this.src.replace(/jpeg$/,'gif')
 			this.onerror=null			
 			console.log(this.src)
 		}
@@ -169,7 +169,7 @@ function buildNode(){
 		window.onresize = position;
 
 		(async function picgallery(){
-			const no_pic = 4
+			const no_pic = 8
 			for(let i=1;i<=no_pic;i++){
 				var parent = document.querySelector(".container2 .container #row")
 				var img = document.createElement('img')
@@ -177,7 +177,7 @@ function buildNode(){
 				var newNode = document.createElement('div')
 				newNode.className = "col-lg-3 col-md-4 col-6"
 				a.className="d-block mb-4 h-100"
-				img.src="./photos/"+i+".jpg"
+				img.src="./photos/"+i+".jpeg"
 				img.onerror = handle
 				img.id='gallery'
 				a.appendChild(img)
